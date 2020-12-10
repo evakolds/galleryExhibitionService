@@ -15,7 +15,7 @@ import java.util.UUID;
 @RequestMapping("/exhibition")
 @AllArgsConstructor
 @NoArgsConstructor
-public class ExhibitionController {
+public class ExhibitionRestController {
 
     @Autowired
     ExhibitionService exhibitionsService;

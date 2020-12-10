@@ -1,5 +1,7 @@
 package com.gallery.exhibition.model;
 
+import com.gallery.exhibition.ExhibitionRequest;
+import com.gallery.exhibition.ExhibitionResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,5 +32,20 @@ public final class Exhibition {
         this.price = price;
     }
 
+    public static Exhibition fromExhibitionRequest(ExhibitionRequest exhibitionRequest) {
+        return new Exhibition(UUID.randomUUID(),
+                exhibitionRequest.getName(),
+                exhibitionRequest.getOpen(),
+                exhibitionRequest.getPrice());
+    }
+
+    public ExhibitionResponse toExhibitionResponse() {
+        return ExhibitionResponse.newBuilder().
+                setId(exhId.toString()).
+                setName(name).
+                setOpen(open).
+                setPrice(price).
+                build();
+    }
 }
 
